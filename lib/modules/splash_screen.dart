@@ -2,7 +2,10 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mv_customet_app/layout/cubit/cubit.dart';
+import 'package:mv_customet_app/shared/network/local/cache_helper.dart';
 import 'package:mv_customet_app/shared/styles/color.dart';
+import 'package:mv_customet_app/widget/fade_animation.dart';
 import 'package:sizer/sizer.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -11,42 +14,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation;
-
+  {
   @override
   void initState() {
-    // TODO: implement initState
+
+  Timer(Duration(seconds: 8), (){
+    bool boarding  = CacheHelper.getData(key: 'onBoarding');
+    boarding == null?Navigator.pushNamedAndRemoveUntil(context,'OnBoardingScreen', (route) => false):
+    boarding == true?Navigator.pushNamedAndRemoveUntil(context,'AppLayout', (route) => false):
+    Navigator.pushNamedAndRemoveUntil(context,'OnBoardingScreen', (route) => false);
+  });
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1800),
-    )..repeat(min: 0,max: 1.0);
-    _animation=CurvedAnimation(parent: _controller, curve: Curves.linear,);
   }
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    _controller.dispose();
-  }
+
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 5), () => navigateAndFinish(context, LoginScreen()));
-    var cubit = RiderAppCubit.get(context);
+    var cubit = AppCubit.get(context);
     return Scaffold(
       body: Container(
         height: double.infinity,
         child: Stack(
           children: [
-            FadeAnimation(
-              1.2,
-              Container(
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                ),
+            Container(
+              height: double.infinity,
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
               ),
             ),
             Center(
@@ -54,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Lottie.asset('assets/images/mob.json',width:80.w,height: 30.h),
+                  Lottie.asset('assets/images/mob.json',width:80.w,height: 30.h,repeat: false),
                   SizedBox(
                     height: 4.h,
                   ),
