@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget
                 title: 'Customer App',
                 debugShowCheckedModeBanner: false,
                 theme: ThemeData(
-                  fontFamily: 'Jannah',
+                  fontFamily: 'Lato',
                 ),
                 routes: {
                   'SplashScreen' : (context) => SplashScreen(),

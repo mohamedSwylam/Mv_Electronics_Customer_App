@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:mv_customet_app/shared/styles/color.dart';
 import 'package:titled_navigation_bar/titled_navigation_bar.dart';
 
 import 'cubit/cubit.dart';
@@ -20,14 +21,14 @@ class AppLayout extends StatelessWidget {
               'Electronic App',
               style: TextStyle(color: Colors.black),
             ),
-            backgroundColor: Colors.white,
+            backgroundColor: defaultColor,
             elevation: 0.0,
             actions: [
               IconButton(
                 onPressed: () {},
                 icon: Icon(
                   IconlyBold.buy,
-                  color: Colors.cyan,
+                  color: Colors.white,
                 ),
               ),
             ],

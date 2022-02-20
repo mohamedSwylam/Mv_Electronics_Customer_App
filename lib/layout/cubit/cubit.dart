@@ -13,7 +13,19 @@ import 'package:mv_customet_app/modules/home_screen/home_screen.dart';
 class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitialState());
   static AppCubit get(context) => BlocProvider.of(context);
-
+  //onBoarding
+  //pageView on home screen
+  double scrollPositionBanner = 0;
+ void pageViewBannerChange(value){
+   scrollPositionBanner = value.toDouble();
+   emit(ChangePageViewState());
+ }
+  double scrollPositionBrand = 0;
+  void pageViewBrandsChange(value){
+    scrollPositionBrand = value.toDouble();
+    emit(ChangePageViewState());
+  }
+  //Button navigation bar
   int currentIndex = 0;
   List<Widget> StoreScreens = [
     HomeScreen(),
@@ -44,5 +56,16 @@ class AppCubit extends Cubit<AppStates> {
     currentIndex = 3;
     emit(ChangeBottomNavState());
   }
-
+  //category widget
+  int categoryIndex=0;
+  List<String> categoryLabel = <String>[
+  'Picked For You',
+  'Mobiles',
+  'Fashion',
+  'Groceries',
+  ];
+  void changeCategoryLabel(value) {
+    categoryIndex = value;
+    emit(ChangeCategoryLabelState());
+  }
 }

@@ -5,6 +5,8 @@ import 'package:mv_customet_app/layout/cubit/cubit.dart';
 import 'package:mv_customet_app/layout/cubit/states.dart';
 import 'package:mv_customet_app/shared/styles/color.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/banner_widget.dart';
+import 'package:mv_customet_app/widget/home_screen_widget/brands_heightlight_widget.dart';
+import 'package:mv_customet_app/widget/home_screen_widget/category_widget.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/search_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,7 +20,10 @@ class HomeScreen extends StatelessWidget {
           body: ListView(
             children: [
               SearchWidget(),
+              SizedBox(height: 10,),
               BannerWidget(),
+              BrandHighLightsWidget(),
+              CategoryWidget(),
             ],
           ),
         );
