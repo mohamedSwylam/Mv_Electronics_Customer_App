@@ -181,6 +181,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.3.0"
+  flutter_iconly:
+    dependency: "direct main"
+    description:
+      name: flutter_iconly
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   flutter_icons:
     dependency: "direct main"
     description:
@@ -594,7 +601,7 @@ packages:
       name: titled_navigation_bar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "5.0.0-nullsafety.0"
   typed_data:
     dependency: transitive
     description:

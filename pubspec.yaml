@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   conditional_builder: ^1.0.2
   dots_indicator: ^2.1.0
+  flutter_iconly: ^1.0.2
   bloc: ^7.0.0
   flutter_bloc: ^7.0.0
   dio: ^4.0.0
@@ -43,7 +44,7 @@ dependencies:
   shared_preferences: ^2.0.5
   fluttertoast: ^8.0.3
   flutter_icons: ^1.1.0
-  titled_navigation_bar: ^4.1.0
+  titled_navigation_bar: ^5.0.0-nullsafety.0
   flutter_rating_bar: ^4.0.0
   list_tile_switch: ^0.0.2
   badges: ^2.0.1
