@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget
     return  MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => AppCubit(),
+          create: (BuildContext context) => AppCubit()..getBanners(),
         ),
       ],
       child: BlocConsumer<AppCubit,AppStates>(
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget
                   'OnBoardingScreen' : (context) => OnBoardingScreen(),
                   'AppLayout' : (context) => AppLayout(),
                 },
-                initialRoute: 'SplashScreen',
+                initialRoute: 'AppLayout',
               );
             }
           );

@@ -17,7 +17,7 @@ class DotIndicatorWidget extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: DotsIndicator(
-            dotsCount: 3,
+            dotsCount: 4,
             position: scrollPosition,
             decorator: DotsDecorator(
               activeColor: defaultColor,

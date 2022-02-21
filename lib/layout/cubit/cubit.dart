@@ -1,18 +1,20 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mv_customet_app/layout/cubit/states.dart';
 import 'package:mv_customet_app/modules/account_screen/account_screen.dart';
 import 'package:mv_customet_app/modules/cart_screen/cart_screen.dart';
 import 'package:mv_customet_app/modules/chat_screen/chat_screen.dart';
 import 'package:mv_customet_app/modules/home_screen/home_screen.dart';
+import 'package:mv_customet_app/services/firebase_service.dart';
 
 
 
 class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitialState());
   static AppCubit get(context) => BlocProvider.of(context);
+  FirebaseService service=FirebaseService();
   //onBoarding
   //pageView on home screen
   double scrollPositionBanner = 0;
@@ -67,5 +69,20 @@ class AppCubit extends Cubit<AppStates> {
   void changeCategoryLabel(value) {
     categoryIndex = value;
     emit(ChangeCategoryLabelState());
+  }
+  // get homeBanners
+  List banners = [];
+   getBanners() async {
+    emit(GetBannersLoadingStates());
+    await FirebaseFirestore.instance.collection('homeBanners')
+        .get()
+        .then((QuerySnapshot bannersSnapshot) {
+      bannersSnapshot.docs.forEach((element) {
+        banners.add(element['image']);
+      });
+      emit(GetBannersSuccessStates());
+    }).catchError((error) {
+      emit(GetBannersErrorStates(error.toString()));
+    });
   }
 }
