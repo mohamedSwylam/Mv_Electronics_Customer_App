@@ -17,3 +17,12 @@ class GetBannersErrorStates extends AppStates {
 
   GetBannersErrorStates(this.error);
 }
+class GetBrandAdLoadingStates extends AppStates {}
+
+class GetBrandAdSuccessStates extends AppStates {}
+
+class GetBrandAdErrorStates extends AppStates {
+  final String error;
+
+  GetBrandAdErrorStates(this.error);
+}

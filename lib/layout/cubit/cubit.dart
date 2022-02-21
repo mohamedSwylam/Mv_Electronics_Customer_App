@@ -85,4 +85,19 @@ class AppCubit extends Cubit<AppStates> {
       emit(GetBannersErrorStates(error.toString()));
     });
   }
+  // get homeBanners
+  List brandAd = [];
+  getBrandsAd() async {
+    emit(GetBrandAdLoadingStates());
+    await FirebaseFirestore.instance.collection('brandAd')
+        .get()
+        .then((QuerySnapshot brandAdSnapshot) {
+      brandAdSnapshot.docs.forEach((element) {
+        brandAd.add(element);
+      });
+      emit(GetBrandAdSuccessStates());
+    }).catchError((error) {
+      emit(GetBrandAdErrorStates(error.toString()));
+    });
+  }
 }

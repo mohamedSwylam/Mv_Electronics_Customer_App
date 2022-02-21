@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget
     return  MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (BuildContext context) => AppCubit()..getBanners(),
+          create: (BuildContext context) => AppCubit()..getBanners()..getBrandsAd(),
         ),
       ],
       child: BlocConsumer<AppCubit,AppStates>(

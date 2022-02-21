@@ -5,8 +5,10 @@ import 'package:mv_customet_app/shared/styles/color.dart';
 
 class DotIndicatorWidget extends StatelessWidget {
   final double scrollPosition;
+  final int dotCount;
   const DotIndicatorWidget({
     required this.scrollPosition,
+    required this.dotCount,
     Key? key,
   }) : super(key: key);
 
@@ -17,7 +19,7 @@ class DotIndicatorWidget extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: DotsIndicator(
-            dotsCount: 4,
+            dotsCount: dotCount,
             position: scrollPosition,
             decorator: DotsDecorator(
               activeColor: defaultColor,
