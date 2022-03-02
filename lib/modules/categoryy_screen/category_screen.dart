@@ -6,10 +6,12 @@ import 'package:flutterfire_ui/firestore.dart';
 import 'package:mv_customet_app/layout/cubit/cubit.dart';
 import 'package:mv_customet_app/layout/cubit/states.dart';
 import 'package:mv_customet_app/models/category_model.dart';
+import 'package:mv_customet_app/models/main_category_model.dart';
 import 'package:mv_customet_app/shared/styles/color.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/banner_widget.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/brands_heightlight_widget.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/category_widget.dart';
+import 'package:mv_customet_app/widget/home_screen_widget/main_category_widget.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/search_widget.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -69,6 +71,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 SizedBox(
                                   child: CachedNetworkImage(
@@ -100,6 +103,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   },
                 ),
               ),
+              MainCategoryWidget(selectedCat: cubit.selectedCategory,),
             ],
           ),
         );
