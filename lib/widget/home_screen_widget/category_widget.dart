@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutterfire_ui/firestore.dart';
 import 'package:mv_customet_app/layout/cubit/cubit.dart';
+import 'package:mv_customet_app/models/category_model.dart';
 
 class CategoryWidget extends StatelessWidget {
   @override
@@ -32,7 +34,32 @@ class CategoryWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: ListView.builder(
+                    child: FirestoreListView<Category>(
+                      scrollDirection: Axis.horizontal,
+                      query: categoryCollection,
+                      itemBuilder: (context, snapshot) {
+                        Category category = snapshot.data();
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 4),
+                          child: ActionChip(
+                              padding: EdgeInsets.zero,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(2)),
+                              backgroundColor: Colors.grey,
+                              label: Text(
+                                category.catName,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black),
+                              ),
+                              onPressed:() {
+
+                              }
+                          ),
+                        );
+                      },
+                    ),
+                    /*ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: cubit.categoryLabel.length,
                         itemBuilder: (BuildContext context, int index) {
@@ -58,7 +85,7 @@ class CategoryWidget extends StatelessWidget {
                               }
                             ),
                           );
-                        }),
+                        }),*/
                   ),
                   IconButton(
                     onPressed: () {},

@@ -69,6 +69,7 @@ dependencies:
   getwidget: ^2.0.5
   cached_network_image: ^3.2.0
   youtube_player_flutter: ^8.0.0
+  flutterfire_ui: ^0.3.0
 
 
 

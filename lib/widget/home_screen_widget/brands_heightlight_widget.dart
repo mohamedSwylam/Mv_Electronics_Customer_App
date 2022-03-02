@@ -56,15 +56,12 @@ class _BrandHighLightsWidgetState extends State<BrandHighLightsWidget> {
                                 height: 100,
                                 color: Colors.deepOrange,
                                 child: YoutubePlayer(
-                                  showVideoProgressIndicator: false,
-
                                   controller: YoutubePlayerController(
                                     initialVideoId: AppCubit.get(context)
                                         .brandAd[index]['youtube'],
                                     flags: const YoutubePlayerFlags(
-                                      autoPlay: true,
+                                      autoPlay: false,
                                       mute: true,
-
                                     ),
                                   ),
                                 ),
