@@ -1,28 +1,31 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mv_customet_app/services/firebase_service.dart';
 
-class MainCategory {
-  MainCategory({required this.category, required this.mainCategory});
+class SubCategory {
+  SubCategory({required this.image, required this.mainCategory,required this.subCatName});
 
-  MainCategory.fromJson(Map<String, Object?> json)
+  SubCategory.fromJson(Map<String, Object?> json)
       : this(
-    category: json['category']! as String,
+    image: json['image']! as String,
+    subCatName: json['subCatName']! as String,
     mainCategory: json['mainCategory']! as String,
   );
 
-  final String category;
+  final String image;
+  final String subCatName;
   final String mainCategory;
 
   Map<String, Object?> toJson() {
     return {
-      'category': category,
-      'image': mainCategory,
+      'image': image,
+      'subCatName': subCatName,
+      'mainCategory': mainCategory,
     };
   }
 }
 FirebaseService service=FirebaseService();
- mainCategoryCollection (selectedCat){
-  return service.mainCategories.where('approved',isEqualTo: true).where('category',isEqualTo: selectedCat).withConverter<MainCategory>(
-      fromFirestore: (snapshot, _) => MainCategory.fromJson(snapshot.data()!),
-   toFirestore: (mainCategory, _) => mainCategory.toJson(),);
+ subCategoryCollection (selectedCat){
+  return service.subCategories.where('active',isEqualTo: true).where('mainCategory',isEqualTo: selectedCat).withConverter<SubCategory>(
+      fromFirestore: (snapshot, _) => SubCategory.fromJson(snapshot.data()!),
+   toFirestore: (subCategory, _) => subCategory.toJson(),);
  }

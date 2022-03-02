@@ -6,7 +6,7 @@ import 'package:mv_customet_app/layout/cubit/states.dart';
 import 'package:mv_customet_app/shared/styles/color.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/banner_widget.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/brands_heightlight_widget.dart';
-import 'package:mv_customet_app/widget/home_screen_widget/category_widget.dart';
+import 'package:mv_customet_app/widget/category_screen_widgets/category_widget.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/search_widget.dart';
 
 class HomeScreen extends StatefulWidget {

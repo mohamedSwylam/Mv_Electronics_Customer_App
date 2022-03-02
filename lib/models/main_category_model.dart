@@ -16,7 +16,7 @@ class MainCategory {
   Map<String, Object?> toJson() {
     return {
       'category': category,
-      'image': mainCategory,
+      'mainCategory': mainCategory,
     };
   }
 }
