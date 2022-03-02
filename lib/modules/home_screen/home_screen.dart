@@ -21,6 +21,24 @@ class _HomeScreenState extends State<HomeScreen> {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(
+              'Electronic App',
+              style: TextStyle(color: Colors.black),
+            ),
+            backgroundColor: defaultColor,
+            elevation: 0.0,
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  IconlyBold.buy,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
           backgroundColor: defaultColor,
           body: ListView(
             children: [

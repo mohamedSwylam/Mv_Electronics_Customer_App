@@ -23,5 +23,5 @@ class Category {
 FirebaseService service=FirebaseService();
 final categoryCollection = service.categories.where('active',isEqualTo: true).withConverter<Category>(
   fromFirestore: (snapshot, _) => Category.fromJson(snapshot.data()!),
-  toFirestore: (movie, _) => movie.toJson(),
+  toFirestore: (category, _) => category.toJson(),
 );

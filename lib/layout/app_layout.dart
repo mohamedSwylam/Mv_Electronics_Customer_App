@@ -20,24 +20,6 @@ class _AppLayoutState extends State<AppLayout> {
       builder: (context, state) {
         var cubit = AppCubit.get(context);
         return Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: Text(
-              'Electronic App',
-              style: TextStyle(color: Colors.black),
-            ),
-            backgroundColor: defaultColor,
-            elevation: 0.0,
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  IconlyBold.buy,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
           body: cubit.StoreScreens[cubit.currentIndex],
           bottomNavigationBar: TitledBottomNavigationBar(
             activeColor: Colors.cyan,
@@ -51,7 +33,12 @@ class _AppLayoutState extends State<AppLayout> {
                   icon: Icon(IconlyBold.home),
                   backgroundColor: Theme.of(context).scaffoldBackgroundColor),
               TitledNavigationBarItem(
-                  title: Text('Chat',
+                  title: Text('Category',
+                      style: Theme.of(context).textTheme.subtitle1),
+                  icon: Icon(IconlyBold.category),
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor),
+              TitledNavigationBarItem(
+                  title: Text('Chats',
                       style: Theme.of(context).textTheme.subtitle1),
                   icon: Icon(IconlyBold.chat),
                   backgroundColor: Theme.of(context).scaffoldBackgroundColor),

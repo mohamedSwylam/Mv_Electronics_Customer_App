@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mv_customet_app/layout/cubit/states.dart';
 import 'package:mv_customet_app/modules/account_screen/account_screen.dart';
 import 'package:mv_customet_app/modules/cart_screen/cart_screen.dart';
+import 'package:mv_customet_app/modules/categoryy_screen/category_screen.dart';
 import 'package:mv_customet_app/modules/chat_screen/chat_screen.dart';
 import 'package:mv_customet_app/modules/home_screen/home_screen.dart';
 import 'package:mv_customet_app/services/firebase_service.dart';
@@ -31,6 +32,7 @@ class AppCubit extends Cubit<AppStates> {
   int currentIndex = 0;
   List<Widget> StoreScreens = [
     HomeScreen(),
+    CategoryScreen(),
     ChatScreen(),
     CartScreen(),
     UserScreen(),
@@ -59,15 +61,9 @@ class AppCubit extends Cubit<AppStates> {
     emit(ChangeBottomNavState());
   }
   //category widget
-  int categoryIndex=0;
-  List<String> categoryLabel = <String>[
-  'Picked For You',
-  'Mobiles',
-  'Fashion',
-  'Groceries',
-  ];
+  String? selectedCategory;
   void changeCategoryLabel(value) {
-    categoryIndex = value;
+    selectedCategory = value;
     emit(ChangeCategoryLabelState());
   }
   // get homeBanners
