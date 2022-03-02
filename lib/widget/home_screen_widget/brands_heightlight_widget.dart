@@ -6,7 +6,12 @@ import 'package:mv_customet_app/layout/cubit/cubit.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/dot_indicator_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class BrandHighLightsWidget extends StatelessWidget {
+class BrandHighLightsWidget extends StatefulWidget {
+  @override
+  State<BrandHighLightsWidget> createState() => _BrandHighLightsWidgetState();
+}
+
+class _BrandHighLightsWidgetState extends State<BrandHighLightsWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,6 +56,8 @@ class BrandHighLightsWidget extends StatelessWidget {
                                 height: 100,
                                 color: Colors.deepOrange,
                                 child: YoutubePlayer(
+                                  showVideoProgressIndicator: false,
+
                                   controller: YoutubePlayerController(
                                     initialVideoId: AppCubit.get(context)
                                         .brandAd[index]['youtube'],

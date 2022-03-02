@@ -7,7 +7,12 @@ import 'package:titled_navigation_bar/titled_navigation_bar.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
-class AppLayout extends StatelessWidget {
+class AppLayout extends StatefulWidget {
+  @override
+  State<AppLayout> createState() => _AppLayoutState();
+}
+
+class _AppLayoutState extends State<AppLayout> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppStates>(

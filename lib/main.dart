@@ -12,7 +12,7 @@ import 'layout/cubit/states.dart';
 import 'package:sizer/sizer.dart';
 
 
-void main() async {
+  main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Bloc.observer = MyBlocObserver();

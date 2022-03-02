@@ -9,7 +9,12 @@ import 'package:mv_customet_app/widget/home_screen_widget/brands_heightlight_wid
 import 'package:mv_customet_app/widget/home_screen_widget/category_widget.dart';
 import 'package:mv_customet_app/widget/home_screen_widget/search_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit, AppStates>(
